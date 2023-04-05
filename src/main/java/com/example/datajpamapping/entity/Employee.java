@@ -19,8 +19,7 @@ public class Employee {
   private int employeeId;
   private String name;
   @JsonIgnoreProperties(value = "employee")
-  @OneToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "address_id", referencedColumnName = "addressId")
+  @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
   private Address address;
 
 }

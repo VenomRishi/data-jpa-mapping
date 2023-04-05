@@ -1,10 +1,12 @@
 package com.example.datajpamapping.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import lombok.Data;
 
@@ -18,7 +20,8 @@ public class Address {
   private String temporaryAddress;
   private String permanentAddress;
   @JsonIgnoreProperties(value = "address")
-  @OneToOne(mappedBy = "address")
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "employee_id", referencedColumnName = "employeeId")
   private Employee employee;
 
 }
