@@ -33,8 +33,6 @@ public class EmployeeController {
 
   @PostMapping("/employee")
   public Employee addEmployee(@RequestBody Employee employee) {
-    Address savedAddress = addressRepository.save(employee.getAddress());
-    employee.setAddress(savedAddress);
     return employeeRepository.save(employee);
   }
 }
