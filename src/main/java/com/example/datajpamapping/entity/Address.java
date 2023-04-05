@@ -20,8 +20,7 @@ public class Address {
   private String temporaryAddress;
   private String permanentAddress;
   @JsonIgnoreProperties(value = "address")
-  @OneToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "employee_id", referencedColumnName = "employeeId")
+  @OneToOne(mappedBy = "address")
   private Employee employee;
 
 }
